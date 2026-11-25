@@ -5,6 +5,7 @@ import { useProgress } from '@react-three/drei';
 import { startAudio } from '../core/AudioEngine';
 import { useExperience } from '../stores/useExperience';
 import type { Acervo } from '../data/acervo';
+import { CLASSIC_URL } from '../core/links';
 
 export function IntroScreen({ acervo }: { acervo: Acervo }) {
   const phase = useExperience((s) => s.phase);
@@ -56,7 +57,7 @@ export function IntroScreen({ acervo }: { acervo: Acervo }) {
           </button>
         )}
         <p className="intro-foot">
-          Use fones para a melhor experiência · <a href="./classico/">modo clássico (sem 3D)</a>
+          Use fones para a melhor experiência · <a href={CLASSIC_URL}>modo clássico (sem 3D)</a>
         </p>
       </div>
     </div>

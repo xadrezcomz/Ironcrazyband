@@ -29,7 +29,7 @@ export async function startCodePanel(root, url, { rows = 14, cps = 70, reduced =
   const body = root.querySelector('.code-body');
   let src;
   try {
-    src = await (await fetch(url)).text();
+    src = window.__ENGINE_SRC__ ?? (await (await fetch(url)).text());
   } catch {
     root.hidden = true;
     return;

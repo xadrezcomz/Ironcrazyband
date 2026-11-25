@@ -48,6 +48,9 @@ export const isPlaceholder = (s: string) => /\[[^\]]+\]/.test(s);
 let promise: Promise<Acervo> | null = null;
 
 export function loadAcervo(): Promise<Acervo> {
+  // versão em arquivo único (scripts/build-standalone.mjs): o acervo vem embutido na página
+  const embedded = (globalThis as { __ACERVO__?: Acervo }).__ACERVO__;
+  if (embedded) return (promise ??= Promise.resolve(embedded));
   promise ??= fetch('./acervo.json').then((r) => {
     if (!r.ok) throw new Error(`acervo.json: ${r.status}`);
     return r.json() as Promise<Acervo>;

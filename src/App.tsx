@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { PerformanceMonitor } from '@react-three/drei';
 import * as THREE from 'three';
 import { CameraRig } from './core/CameraRig';
+import { CLASSIC_URL } from './core/links';
 import { QUALITY } from './core/quality';
 import { VIEWS } from './core/views';
 import { loadAcervo, type Acervo } from './data/acervo';
@@ -76,7 +77,7 @@ export function NoWebGL() {
         <p className="intro-anos">Memorial interativo · 2010–2026</p>
         <p className="intro-epi">Este aparelho não oferece os gráficos 3D (WebGL 2) que o pub precisa.</p>
         <div className="intro-actions">
-          <a className="btn primary" href="./classico/">Abrir o modo clássico</a>
+          <a className="btn primary" href={CLASSIC_URL}>Abrir o modo clássico</a>
         </div>
       </div>
     </div>

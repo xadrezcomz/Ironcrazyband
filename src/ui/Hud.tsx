@@ -6,6 +6,7 @@ import { setAmbience, setMasterVolume, startAudio } from '../core/AudioEngine';
 import { useExperience, type Panel } from '../stores/useExperience';
 import type { Acervo } from '../data/acervo';
 import { InstrumentPanel } from './InstrumentPanel';
+import { CLASSIC_URL } from '../core/links';
 
 function useAudioSync() {
   const volume = useExperience((s) => s.volume);
@@ -73,7 +74,7 @@ export function Hud({ acervo }: { acervo: Acervo }) {
             <button type="button" className="btn small" onClick={async () => { await startAudio(); setSoundOn(true); }}>♪ Ativar som</button>
           )}
           <button type="button" className="icon" aria-label="Configurações" onClick={() => setPanel('config')}>⚙</button>
-          <a className="btn small ghost" href="./classico/">Modo clássico</a>
+          <a className="btn small ghost" href={CLASSIC_URL}>Modo clássico</a>
         </div>
       </header>
 

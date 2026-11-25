@@ -4,7 +4,8 @@
 const ROOT = new URL('../', new URL('./', location.href)); // raiz do site (um nível acima de /classico/)
 const media = (p) => (!p || /^(https?:|blob:|data:)/.test(p) ? p : new URL(p, ROOT).href);
 
-const acervo = await (await fetch(new URL('acervo.json', ROOT))).json();
+// na versão em arquivo único o acervo vem embutido na página
+const acervo = window.__ACERVO__ ?? (await (await fetch(new URL('acervo.json', ROOT))).json());
 
 export const CONFIG = {
   ...acervo,

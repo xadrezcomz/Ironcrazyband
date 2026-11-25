@@ -52,6 +52,17 @@ músicas e galeria. O pub 3D e o modo clássico leem o mesmo arquivo.
   inventados. Preencha com informação real.
 - Integrante sem foto (`"photo": null`) aparece com a inicial, nunca com um rosto gerado.
 
+## Abrir sem instalar nada
+
+```bash
+npm run build:standalone
+```
+
+Gera em `dist-standalone/` duas páginas autocontidas (código, estilos, fotos e acervo
+embutidos), que abrem com dois cliques, inclusive no celular:
+`iron-crazy-pub-3d.html` e `iron-crazy-classico.html`. Mantenha as duas na mesma pasta
+para os links entre os modos funcionarem. Vídeos e áudios acima de 15 MB não são embutidos.
+
 ## Publicar
 
 É um site estático (`dist/`). Cloudflare Pages ou Vercel: comando `npm run build`, pasta `dist`.
