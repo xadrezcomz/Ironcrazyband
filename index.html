@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Iron Crazy — memorial</title>
+  <meta name="description" content="Memorial da banda Iron Crazy.">
+  <meta name="theme-color" content="#04050a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<section id="hero" aria-label="Abertura">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <img id="hero-fallback" alt="Foto da banda">
+
+  <div class="hud hud-top">
+    <span><span data-banda></span>.ascii</span>
+    <span class="dot-live">t <span id="hud-t">0.00s</span></span>
+  </div>
+
+  <div class="hero-title">
+    <p class="eyebrow">em memória</p>
+    <h1 data-banda>Iron Crazy</h1>
+    <p class="anos" id="anos"></p>
+    <p class="epigrafe" id="epigrafe"></p>
+  </div>
+
+  <div class="hud hud-bottom">
+    <span id="handle"></span>
+    <div class="hud-stats">
+      <span>letras <b id="hud-letras">0</b></span>
+      <span>grade <b id="hud-grade">0×0</b></span>
+      <span>fps <b class="hud-fps">60</b></span>
+      <span>modo <b id="hud-modo">cor</b></span>
+    </div>
+  </div>
+
+  <details class="controls">
+    <summary>ajustes</summary>
+    <label>densidade <input id="ctl-densidade" type="range" min="0" max="100" value="70"></label>
+    <div class="modes" role="group" aria-label="Modo de cor">
+      <button type="button" data-mode="color" aria-pressed="true">cor</button>
+      <button type="button" data-mode="ouro" aria-pressed="false">ouro</button>
+      <button type="button" data-mode="sepia" aria-pressed="false">sépia</button>
+      <button type="button" data-mode="mono" aria-pressed="false">terminal</button>
+    </div>
+    <label class="check"><input id="ctl-bordas" type="checkbox" checked> bordas / \ | _</label>
+    <button type="button" id="ctl-replay">↻ montar de novo</button>
+    <label class="file">testar outra foto ou vídeo<input id="ctl-arquivo" type="file" accept="image/*,video/*"></label>
+    <p class="hint">Dá para arrastar um arquivo para a tela. Ele fica só no seu navegador.</p>
+  </details>
+
+  <a class="scroll-cue" href="#historia" aria-label="Rolar para a história">↓</a>
+</section>
+
+<section id="code-panel" class="code-panel" aria-hidden="true">
+  <header><span>ascii-engine.js</span><span class="dot-live">rodando · <span class="hud-fps">60</span> fps</span></header>
+  <div class="code-body"></div>
+</section>
+
+<main>
+  <section id="historia" class="block">
+    <p class="kicker">// a história</p>
+    <h2>Como tudo começou</h2>
+    <div id="historia-texto" class="prose reveal"></div>
+    <ol id="timeline" class="timeline"></ol>
+  </section>
+
+  <section id="integrantes" class="block">
+    <p class="kicker">// quem fez o barulho</p>
+    <h2>Integrantes</h2>
+    <p class="sub">Passe o mouse (ou toque) para a memória ganhar forma.</p>
+    <div id="integrantes-grid" class="grid members"></div>
+  </section>
+
+  <section id="musicas" class="block">
+    <p class="kicker">// o repertório</p>
+    <h2>Músicas</h2>
+    <p class="sub">Ao tocar uma faixa, a imagem lá de cima pulsa junto com o som.</p>
+    <ol id="musicas-lista" class="tracks"></ol>
+  </section>
+
+  <section id="galeria" class="block">
+    <p class="kicker">// arquivo</p>
+    <h2>Galeria</h2>
+    <div id="galeria-grid" class="grid shots"></div>
+  </section>
+
+  <section id="homenagem" class="block final">
+    <p class="kicker">// fim do set</p>
+    <p id="homenagem-texto" class="prose big reveal"></p>
+    <p class="sign"><span data-banda></span> <span aria-hidden="true">▮</span></p>
+  </section>
+</main>
+
+<footer>
+  <span><span data-banda></span> · memorial</span>
+  <span>feito com letras, luz e saudade</span>
+</footer>
+
+<dialog id="lightbox">
+  <button class="lb-close" type="button" aria-label="Fechar">×</button>
+  <div class="lb-media"></div>
+  <p class="lb-cap"></p>
+</dialog>
+
+</body>
+</html>
