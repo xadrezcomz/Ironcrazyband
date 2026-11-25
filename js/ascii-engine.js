@@ -154,7 +154,7 @@ void main() {
     if (st > 0.985) {
       float tw = 0.5 + 0.5 * sin(uTime * (1.0 + st * 3.0) + st * 60.0);
       gi = uStarStart + mod(floor(st * 1000.0), 3.0);
-      col = vec3(0.55, 0.62, 0.85) * (0.2 + 0.8 * tw) * uStars;
+      col = vec3(0.85, 0.72, 0.5) * (0.2 + 0.8 * tw) * uStars;
     }
   }
 
@@ -189,7 +189,7 @@ export const DEFAULTS = {
   stars: 1,
   pulse: 0,
   cellBackground: 0.07, // quanto da cor original aparece atrás de cada letra
-  background: [0.016, 0.02, 0.03],
+  background: [0.063, 0.063, 0.063],
   mouseRadius: 140,     // px CSS
   fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
 };

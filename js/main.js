@@ -34,7 +34,9 @@ function loadMedia(src, type) {
 // ---------------------------------------------------------------- textos
 
 function fillContent() {
-  document.title = `${CONFIG.banda} — memorial`;
+  document.title = `${CONFIG.banda} — ${CONFIG.anos.replace(/\s/g, '')}`;
+  $('#selo').textContent = CONFIG.selo;
+  $('#chamada').textContent = CONFIG.chamada;
   document.querySelectorAll('[data-banda]').forEach((n) => (n.textContent = CONFIG.banda));
   $('#anos').textContent = CONFIG.anos;
   $('#epigrafe').textContent = CONFIG.epigrafe;
@@ -237,7 +239,8 @@ function setupCards() {
     const media = el('div', 'card-media');
     fig.append(media);
     const cap = el('figcaption');
-    cap.append(el('strong', null, p.nome), el('span', null, `${p.papel} · ${p.anos}`));
+    cap.append(el('strong', null, p.nome), el('span', null, p.papel));
+    if (p.nota) cap.append(el('em', null, p.nota));
     fig.append(cap);
     grid.append(fig);
     addCard(media, p.photo, 'image', p.photo ? null : makePortrait(i));
@@ -272,7 +275,7 @@ async function addCard(media, src, type, generated) {
   if (generated) {
     photo = el('img');
     photo.src = generated.toDataURL('image/jpeg', 0.85);
-    photo.alt = 'retrato provisório';
+    photo.alt = 'foto ainda não adicionada';
   } else if (isVideo(src, type)) {
     photo = Object.assign(el('video'), { src, muted: true, loop: true, playsInline: true, preload: 'metadata' });
     media.addEventListener('pointerenter', () => photo.play().catch(() => {}));

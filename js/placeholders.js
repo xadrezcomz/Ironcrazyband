@@ -1,6 +1,6 @@
 // placeholders.js — retratos gerados enquanto as fotos reais não chegam.
 
-const HUES = [8, 32, 190, 280, 140, 350];
+const HUES = [28, 356, 38, 8, 20, 345]; // âmbar e vermelho, como luz de palco de pub
 
 export function makePortrait(index, label = '') {
   const w = 480, h = 600;
@@ -16,7 +16,7 @@ export function makePortrait(index, label = '') {
   // luz de palco atrás da silhueta
   const g = ctx.createRadialGradient(w * 0.5, h * 0.42, 20, w * 0.5, h * 0.42, w * 0.75);
   g.addColorStop(0, `hsla(${hue}, 90%, 62%, 1)`);
-  g.addColorStop(0.45, `hsla(${hue + 20}, 80%, 35%, 0.55)`);
+  g.addColorStop(0.45, `hsla(${hue + 6}, 75%, 32%, 0.55)`);
   g.addColorStop(1, 'rgba(0,0,0,0)');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
@@ -24,7 +24,7 @@ export function makePortrait(index, label = '') {
   // feixe de cima
   ctx.globalCompositeOperation = 'lighter';
   const beam = ctx.createLinearGradient(0, 0, 0, h);
-  beam.addColorStop(0, `hsla(${hue + 40}, 100%, 75%, 0.35)`);
+  beam.addColorStop(0, `hsla(${hue + 8}, 90%, 72%, 0.35)`);
   beam.addColorStop(1, 'rgba(0,0,0,0)');
   ctx.fillStyle = beam;
   ctx.beginPath();
